@@ -1,0 +1,38 @@
+#main-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  align-items: center;
+  gap: 2rem;
+  background-color: var(--bg-navbar);
+}
+
+#main-nav a {
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+#main-nav img {
+  width: 50px;
+  height: auto;
+  margin-right: 16px;
+}
+
+#main-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}
+
+#main-nav input {
+  padding: 15px;
+  border-radius: 20cm;
+  border-style: none;
+}
+
+#main-nav button {
+  padding: 8px;
+}

@@ -1,0 +1,67 @@
+:root {
+  --primary-color: #674188;
+  --secondary-color: #c3acd0;
+
+  --text-primary-light: black;
+  --text-primary-dark: #fffbf5;
+
+  --text-secondary-light: #464646;
+  --text-secondary-dark: #f7efe5;
+
+  --bg-primary-light: #fffbf5;
+  --bg-primary-dark: #1e1f22;
+
+  --bg-secondary-light: #f7efe5;
+  --bg-secondary-dark: #2e2b30;
+
+  --bg-navbar-light: #c3acd0;
+  --bg-navbar-dark: #161617;
+}
+
+.light-theme {
+  --text-primary: var(--text-primary-light);
+  --text-secondary: var(--text-secondary-light);
+  --bg-primary: var(--bg-primary-light);
+  --bg-secondary: var(--bg-secondary-light);
+  --bg-navbar: var(--bg-navbar-light);
+}
+
+.dark-theme {
+  --text-primary: var(--text-primary-dark);
+  --text-secondary: var(--text-secondary-dark);
+  --bg-primary: var(--bg-primary-dark);
+  --bg-secondary: var(--bg-secondary-dark);
+  --bg-navbar: var(--bg-navbar-dark);
+}
+
+body {
+  font-family: "JetBrains Mono", monospace;
+  margin: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.App {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.mid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+input,
+textarea {
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+}

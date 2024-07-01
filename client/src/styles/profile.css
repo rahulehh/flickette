@@ -1,0 +1,53 @@
+.profile {
+  padding: 1rem 3rem;
+  padding-bottom: 2rem;
+}
+
+.profile-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.profile-content ul {
+  padding: 0;
+  list-style: none;
+}
+
+#un-jon {
+  font-size: 15px;
+  opacity: 50%;
+}
+
+#p-name {
+  font-size: 60px;
+}
+
+#p-bio {
+  font-size: 15px;
+  opacity: 70%;
+}
+
+#p-hr {
+  width: 40%;
+  margin: auto;
+  opacity: 2%;
+}
+
+#edit-contents {
+  padding-bottom: 10px;
+}
+
+#edit-contents h4 {
+  margin-bottom: 4px;
+}
+
+#edit-contents input,
+#edit-contents textarea {
+  padding: 4px;
+  width: 300px;
+}
+
+#edit-contents textarea {
+  height: 50px;
+}

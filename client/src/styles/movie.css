@@ -1,0 +1,21 @@
+.movie-outercontainer {
+  display: flex;
+  justify-content: center;
+}
+
+.movie-innercontainer {
+  display: flex;
+  width: 80vw;
+  gap: 2rem;
+  padding-top: 3rem;
+}
+
+.movie-review-container {
+  padding-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.movie-review-container-inner {
+  width: 80vw;
+}
