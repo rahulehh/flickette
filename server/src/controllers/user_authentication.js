@@ -54,7 +54,6 @@ export const handleSignIn = async (req, res) => {
         );
         data.isNewUser = true;
         data = { username: username, ...data };
-        console.log(`User registered ${data}`);
       } else if (query.rowCount == 1) {
         data = {
           user_id: query.rows[0].user_id,
@@ -65,9 +64,6 @@ export const handleSignIn = async (req, res) => {
       }
 
       let token = jwt.sign({ user_id: data.user_id }, JWT_KEY);
-      console.log(`signed token: ${token}`);
-
-      console.log({ label: "user signed in", data: data });
 
       res
         .cookie("jwt_token", token, {
@@ -83,7 +79,6 @@ export const handleSignIn = async (req, res) => {
 };
 
 export const hangleSignOut = async (req, res) => {
-  console.log("signout initiated");
   res
     .clearCookie("jwt_token", { sameSite: "none", secure: true })
     .status(200)

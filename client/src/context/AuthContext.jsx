@@ -39,7 +39,6 @@ export const AuthContextProvider = ({ children }) => {
     signOut(auth)
       .then(async () => {
         localStorage.clear();
-        console.log("User signed out successfully");
         await axios.post("/api/signout", {});
       })
       .catch((error) => {

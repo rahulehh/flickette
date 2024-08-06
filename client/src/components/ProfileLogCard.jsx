@@ -10,7 +10,6 @@ export const ProfileLogCard = ({ data, showControls }) => {
   const [reviewText, setReviewText] = useState("");
 
   const handleDelete = async () => {
-    console.log(`Handle delete for ${data.title}`);
     await deleteLog(data.log_id);
     window.location.reload();
   };

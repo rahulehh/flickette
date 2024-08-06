@@ -1,14 +1,19 @@
 #get-started-main {
   display: flex;
-  padding-inline: 10%;
+  flex-direction: column;
   gap: 2rem;
-  justify-content: space-between;
   padding-block: 20%;
   align-items: center;
   height: 100vh;
 }
 
-#get-started-main img {
-  height: 40vh;
-  width: auto;
+#get-started-main h1 {
+  font-size: 6rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+#get-started-main p {
+  font-size: 2rem;
+  text-align: center;
 }

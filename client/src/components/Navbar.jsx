@@ -11,7 +11,6 @@ function Navbar() {
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       navigate(`/search?s=${e.target.value}`);
-      console.log(`reloading: ${location.href}`);
       location.reload();
     }
   };

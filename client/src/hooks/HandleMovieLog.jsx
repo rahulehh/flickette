@@ -9,12 +9,11 @@ const HandleMovieLog = () => {
 
     try {
       let logDate = new Date(Date.now()).toUTCString();
-      const { data } = await axios.post(`/api/log_movie`, {
+      await axios.post(`/api/log_movie`, {
         imdbId,
         review,
         logDate,
       });
-      console.log({ label: "Handle Movie Log", reponse: data });
       setLogMovieStatus("logged");
     } catch (error) {
       console.error(error);
