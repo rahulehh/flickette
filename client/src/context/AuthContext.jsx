@@ -9,7 +9,7 @@ export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(
-    JSON.parse(localStorage.getItem("user")) || null
+    JSON.parse(localStorage.getItem("user")) || null,
   );
 
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ export const AuthContextProvider = ({ children }) => {
     console.info("Sign in initiated");
     signInWithPopup(auth, provider)
       .then(async (result) => {
-        const res = await axios.post("/api/signin", {
+        const res = await axios.post("/api/auth/signin", {
           name: result.user.displayName,
           email: result.user.email,
           user_id: result.user.uid,
@@ -39,7 +39,7 @@ export const AuthContextProvider = ({ children }) => {
     signOut(auth)
       .then(async () => {
         localStorage.clear();
-        await axios.post("/api/signout", {});
+        await axios.post("/api/auth/signout", {});
       })
       .catch((error) => {
         console.error("Error signing out:", error);

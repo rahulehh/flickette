@@ -7,9 +7,7 @@ const FetchProfileData = () => {
 
   const fetchData = async (username) => {
     try {
-      const { data: response } = await axios.get(
-        `/api/user_deatail?username=${username}`
-      );
+      const { data: response } = await axios.get(`/api/users/${username}`);
       setFetchDataResponse(response[0]);
     } catch (error) {
       console.error(error);

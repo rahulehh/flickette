@@ -7,7 +7,7 @@ const HandleLogDeletion = () => {
   const deleteLog = async (id) => {
     setLogDeletionStatus("");
     try {
-      const response = await axios.post(`/api/delete_log?id=${id}`);
+      const response = await axios.delete(`/api/logs/${id}`);
       setLogDeletionStatus("deleted");
       return response;
     } catch (error) {

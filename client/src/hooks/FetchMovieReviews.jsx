@@ -11,7 +11,7 @@ const FetchMovieReviews = () => {
 
     try {
       const { data: response } = await axios.get(
-        `/api/fetch_movie_reviews?im=${imdbId}`
+        `/api/movies/${imdbId}/reviews`,
       );
       setFetchReviewResult(response);
     } catch (error) {

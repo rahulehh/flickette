@@ -9,9 +9,7 @@ const FetchProfileLogs = () => {
     setFetchLogLoading(true);
     setFetchLogsResult({});
     try {
-      const { data: response } = await axios.get(
-        `/api/fetch_user_logs?u=${username}`
-      );
+      const { data: response } = await axios.get(`/api/users/${username}/logs`);
       setFetchLogsResult(response);
     } catch (error) {
       console.error(error);

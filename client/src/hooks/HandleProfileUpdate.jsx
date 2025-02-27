@@ -7,7 +7,7 @@ const HandleProfileUpdate = () => {
 
   const updateProfile = async ({ username, name, bio }) => {
     try {
-      const { data } = await axios.post(`/api/profile_update`, {
+      const { data } = await axios.patch(`/api/users/profile`, {
         username,
         name,
         bio,

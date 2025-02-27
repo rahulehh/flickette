@@ -9,7 +9,7 @@ const HandleMovieLog = () => {
 
     try {
       let logDate = new Date(Date.now()).toUTCString();
-      await axios.post(`/api/log_movie`, {
+      await axios.post(`/api/logs`, {
         imdbId,
         review,
         logDate,

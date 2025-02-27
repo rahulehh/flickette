@@ -9,7 +9,7 @@ const HandleSearch = () => {
     setSearchLoading(true);
     setSearchResult({});
     try {
-      const { data } = await axios.get(`/api/search?s=${searchKey}`);
+      const { data } = await axios.get(`/api/movies/search?s=${searchKey}`);
       setSearchResult(data);
     } catch (error) {
       console.log("error has occurred");
