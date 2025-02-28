@@ -1,12 +1,12 @@
 import PropTypes from "prop-types";
-import HandleLogDeletion from "../hooks/HandleLogDeletion";
+import { useDeleteLog } from "../hooks/log";
 import { useEffect, useState } from "react";
 import { LogEditModal } from "./Modals";
 import { DeleteButton } from "./Buttons";
 import { Link } from "react-router-dom";
 
 export const ProfileLogCard = ({ data, showControls }) => {
-  const { deleteLog } = HandleLogDeletion();
+  const { deleteLog } = useDeleteLog();
   const [reviewText, setReviewText] = useState("");
 
   const handleDelete = async () => {

@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom";
-import FetchMovieDetails from "../hooks/FetchMovieDetails";
+import { useFetchMovieDetails } from "../hooks/movie";
 import { useEffect } from "react";
 import { LogNew } from "../components/Modals";
 import MovieReviews from "../components/MovieReviews";
 
 const Movie = () => {
-  const { isLoading, movieDetails, fetchMovieDetails } = FetchMovieDetails();
+  const { isLoading, movieDetails, fetchMovieDetails } = useFetchMovieDetails();
   const { imdbId } = useParams();
 
   useEffect(() => {

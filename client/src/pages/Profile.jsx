@@ -1,14 +1,15 @@
 import { useEffect } from "react";
-import FetchProfileData from "../hooks/FetchUserDetails";
+import { useFetchUserDetails } from "../hooks/user";
+import { useFetchLogsByUsername } from "../hooks/log";
 import ProfileSection from "../components/ProfileSection";
 import ProfileLogSection from "../components/ProfileLogSection";
-import FetchProfileLogs from "../hooks/FetchProfileLogs";
 import PropTypes from "prop-types";
 import { useParams } from "react-router-dom";
 
 const Profile = ({ isOwner }) => {
-  const { fetchDataResponse, fetchLoading, fetchData } = FetchProfileData();
-  const { fetchLogsResult, fetchLogLoading, fetchLogs } = FetchProfileLogs();
+  const { fetchDataResponse, fetchLoading, fetchData } = useFetchUserDetails();
+  const { fetchLogsResult, fetchLogLoading, fetchLogs } =
+    useFetchLogsByUsername();
   const { pusername } = useParams();
 
   // sorry you are seeing this

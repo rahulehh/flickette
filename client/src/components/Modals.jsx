@@ -3,9 +3,8 @@ import { EditButton } from "./Buttons";
 import { AppThemeContext } from "../context/AppThemeProvider";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import HandleProfileUpdate from "../hooks/HandleProfileUpdate";
-import HandleLogUpdate from "../hooks/HandleLogUpdate";
-import HandleMovieLog from "../hooks/HandleMovieLog";
+import { useUpdateUserDetails } from "../hooks/user";
+import { useUpdateLog, useCreateLog } from "../hooks/log";
 import { SaveButton } from "./Buttons";
 
 const style = {
@@ -35,7 +34,7 @@ export const EditProfileModal = (userData) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const { updateProfile } = HandleProfileUpdate();
+  const { updateProfile } = useUpdateUserDetails();
 
   useEffect(() => {
     document.body.classList.remove("light-theme", "dark-theme");
@@ -101,7 +100,7 @@ export const EditProfileModal = (userData) => {
 };
 
 export const LogEditModal = (data) => {
-  const { updateLog } = HandleLogUpdate();
+  const { updateLog } = useUpdateLog();
   const { appTheme } = useContext(AppThemeContext);
   const { logData, rt } = data;
 
@@ -185,7 +184,7 @@ export const LogNew = (data) => {
   const [open, setOpen] = useState(false);
   const [reviewText, setReviewText] = useState("");
 
-  const { logMovie } = HandleMovieLog();
+  const { logMovie } = useCreateLog();
 
   const handleSave = () => {
     logMovie({ imdbId: movieData.imdbId, review: reviewText });

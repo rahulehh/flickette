@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import HandleSearch from "../hooks/HandleSearch";
+import { useSearchMovies } from "../hooks/movie";
 import { useLocation } from "react-router-dom";
 import { SearchMovieCard } from "../components/SearchCards";
 
@@ -10,7 +10,7 @@ function useQuery() {
 }
 
 const Search = () => {
-  const { searchResult, searchLoading, handleSearch } = HandleSearch();
+  const { searchResult, searchLoading, handleSearch } = useSearchMovies();
 
   let query = useQuery();
 

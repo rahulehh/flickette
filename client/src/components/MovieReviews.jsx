@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
-import FetchMovieReviews from "../hooks/FetchMovieReviews";
+import { useFetchLogsByMovieId } from "../hooks/log";
 import { useEffect } from "react";
 import ReviewCard from "./ReviewCard";
 
 const MovieReviews = ({ imdbId }) => {
   const { fetchReviewLoading, fetchReviewResult, fetchMovieReviews } =
-    FetchMovieReviews();
+    useFetchLogsByMovieId();
 
   useEffect(() => {
     fetchMovieReviews(imdbId);

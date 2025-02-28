@@ -1,7 +1,28 @@
 import axios from "axios";
 import { useState } from "react";
 
-const HandleProfileUpdate = () => {
+const useFetchUserDetails = () => {
+  const [fetchDataResponse, setFetchDataResponse] = useState();
+  const [fetchLoading, setFetchLoading] = useState(true);
+
+  const fetchData = async (username) => {
+    try {
+      const { data: response } = await axios.get(`/api/users/${username}`);
+      setFetchDataResponse(response[0]);
+    } catch (error) {
+      console.error(error);
+    }
+    setFetchLoading(false);
+  };
+
+  return {
+    fetchDataResponse,
+    fetchLoading,
+    fetchData,
+  };
+};
+
+const useUpdateUserDetails = () => {
   const [updateProfileResponse, setUpdateProfileResponse] = useState();
   const [updateProfileStatus, setUpdateProfileStatus] = useState(false);
 
@@ -27,4 +48,4 @@ const HandleProfileUpdate = () => {
   };
 };
 
-export default HandleProfileUpdate;
+export { useFetchUserDetails, useUpdateUserDetails };

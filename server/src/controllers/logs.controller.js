@@ -56,7 +56,7 @@ export const createLog = (req, res) => {
 
       message = "updated";
     } catch (error) {
-      console.log(error);
+      console.error(error);
       message = "error has occured in server side";
     }
 
@@ -106,7 +106,7 @@ export const getUserLogs = async (req, res) => {
     );
     res.status(200).json({ message: "fetched", data: query.rows });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     res.status(400).json({ message: "An error occurred" });
   }
 };

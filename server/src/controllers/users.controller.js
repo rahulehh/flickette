@@ -34,7 +34,6 @@ export const signInUser = async (req, res) => {
         "select * from users where user_id=$1 and email=$2",
         [data.user_id, data.email],
       );
-      console.log({ query_rows: query.rows });
 
       if (query.rowCount == 0) {
         let username = generateUsername();
@@ -62,7 +61,6 @@ export const signInUser = async (req, res) => {
           username: query.rows[0].username,
           isNewUser: false,
         };
-        console.log(data);
       }
 
       let token = jwt.sign({ user_id: data.user_id }, JWT_KEY);
@@ -137,7 +135,7 @@ export const updateUserProfile = async (req, res) => {
           message = "Profile has been updated";
         }
       } catch (error) {
-        console.log(error);
+        console.error(error);
         message = "some error has occured";
       }
     } else {
@@ -154,14 +152,11 @@ export const updateUserProfile = async (req, res) => {
 export const getUserProfile = async (req, res) => {
   const username = req.params.username;
 
-  console.log(username);
-
   try {
     const response = await db.query(
       "select name, username, bio, created_at from users where username=$1",
       [username],
     );
-    console.log(response.rows);
     res.status(200).json(response.rows);
   } catch (error) {
     res.send(error);

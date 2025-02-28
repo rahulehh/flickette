@@ -22,7 +22,7 @@ export const searchMovies = async (req, res) => {
       .status(200)
       .json({ users: query.rows, movies: apiResponse.data.Search });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     if (error.code === "ETIMEDOUT") {
       res.status(504).json({ message: "Request to OMDB API timed out" });
     } else {
@@ -38,7 +38,7 @@ export const getMovieDetails = async (req, res) => {
     const { data } = await axios.get(OMDB_API + `i=${imdbId}`);
     res.status(200).json(data);
   } catch (error) {
-    console.log(error);
+    console.error(error);
     if (error.code === "ETIMEDOUT")
       res.status(504).json({ message: "Request to OMDB API timed out" });
     else res.status(400).json({ message: "An error occurred", error });
@@ -55,7 +55,7 @@ export const getMovieReviews = async (req, res) => {
     );
     res.status(200).json({ message: "fetched", data: query.rows });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     res.status(400).json({ message: "An error occurred" });
   }
 };
